@@ -1,0 +1,170 @@
+﻿<Window x:Class="Certificate_generator.User_dashbord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="User_dashbord"  Height="600" Width="1024">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+
+            <!-- page content loads-->
+            <Grid x:Name="PanelContainer" Width="824" Grid.Column="1" Grid.Row="1" Background="White">
+                <ScrollViewer Margin="10,0,-10,0">
+                    <Grid Grid.RowSpan="5" Grid.ColumnSpan="4" >
+                        <Frame  x:Name="Main"/>
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+
+            <!--side panel-->
+            <Grid Grid.Row="1" x:Name="GridMenu" Width="200" HorizontalAlignment="Left" >
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF080B27" Offset="1"/>
+                        <GradientStop Color="#FF03072E" Offset="0.329"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.Effect>
+                    <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                </Grid.Effect>
+
+                <Grid Background="#FF03072E">
+                    <StackPanel Height="100">
+                        <Button x:Name="CloseMenuButton" Width="60"  Height="40" Foreground="White"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right"  Visibility="Collapsed" >
+                            <materialDesign:PackIcon Width="25"  Height="25" Kind="ArrowLeft" Foreground="White" />
+                        </Button>
+                        <Button  x:Name="OpenMenuButton" Margin="10,0,15,0" Width="60" Height="40" Foreground="White"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                            
+                        </Button>
+                        <Image x:Name="Image" Source="C:\Users\user\Documents\visual studio 2013\Projects\Certificate_generator\Certificate_generator\assests\logo-colombo-logistics.jpg" Margin="5,0" Visibility="Visible"/>
+                    </StackPanel>
+                </Grid>
+
+
+                <StackPanel Grid.Row="1">
+                    <ScrollViewer Height="450" CanContentScroll="True" VerticalScrollBarVisibility="Auto" Foreground="{x:Null}">
+                        <TreeView  ScrollViewer.HorizontalScrollBarVisibility="Disabled"  Foreground="#DD51587A">
+                            <TreeViewItem >
+                                <TreeViewItem.Header>
+                                    <Button x:Name="Dashboard_load"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-25,0,-10,0" >
+                                        <StackPanel Orientation="Horizontal" Width="140">
+                                            <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center" Height="25" Width="25" Margin="0,0,5,0"/>
+                                            <TextBlock Text="Dashboard" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="20"  Margin="25 1 1 1"/>
+                                        </StackPanel>
+                                    </Button>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+
+
+
+                            <!--Register tab-->
+                            <TreeViewItem >
+                                <TreeViewItem.Header>
+                                    <Button Name="Customer_details" Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-25,0,-10,0">
+                                        <StackPanel Orientation="Horizontal" Width="140">
+                                            <materialDesign:PackIcon Kind="Person" VerticalAlignment="Center" Height="25" Width="25" Margin="0,0,5,0"/>
+                                            <TextBlock Text="Customer" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="20" Margin="23 1 1 1"/>
+                                        </StackPanel>
+                                    </Button>
+                                </TreeViewItem.Header>
+                                <TreeViewItem >
+                                    <TreeViewItem.Header>
+                                        <Button Name="Add_customer"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-20,0,-10,0" Click="Add_customer_Click">
+                                            <StackPanel Orientation="Horizontal" Width="110">
+                                                <materialDesign:PackIcon Kind="PersonAdd" VerticalAlignment="Center" Height="15" Width="15" />
+                                                <TextBlock Text="Create" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="15"  Margin="20,0,0,0"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+                                <TreeViewItem >
+                                    <TreeViewItem.Header>
+                                        <Button Name="Update_customer"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-20,0,-10,0" Click="Update_customer_Click">
+                                            <StackPanel Orientation="Horizontal" Width="110">
+                                                <materialDesign:PackIcon Kind="PeopleTick" VerticalAlignment="Center" Height="15" Width="15" />
+                                                <TextBlock Text="Update" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="15"  Margin="20,0,0,0" />
+                                            </StackPanel>
+                                        </Button>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+
+
+                            </TreeViewItem>
+
+                            <!--Search tab-->
+                            <TreeViewItem >
+                                <TreeViewItem.Header>
+                                    <Button Name="Certificate"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-25,0,-10,0">
+                                        <StackPanel Orientation="Horizontal" Width="140">
+                                            <materialDesign:PackIcon Kind="Certificate" VerticalAlignment="Center" Height="25" Width="25" Margin="0,0,5,0"/>
+                                            <TextBlock Text="Certificate" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="20" Margin="25 1 1 1"/>
+                                        </StackPanel>
+                                    </Button>
+                                </TreeViewItem.Header>
+                                <TreeViewItem >
+                                    <TreeViewItem.Header>
+                                        <Button Name="create_certificate"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-20,0,-10,0" Click="Create_Certificate_Click">
+                                            <StackPanel Orientation="Horizontal" Width="110">
+                                                <materialDesign:PackIcon Kind="Certificate" VerticalAlignment="Center" Height="15" Width="15" />
+                                                <TextBlock Text="Create" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="15" Margin="20,0,0,0" />
+                                            </StackPanel>
+                                        </Button>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+                                <TreeViewItem >
+                                    <TreeViewItem.Header>
+                                        <Button Name="Search_Certificate"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-20,0,-10,0">
+                                            <StackPanel Orientation="Horizontal" Width="110">
+                                                <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center" Height="15" Width="15" />
+                                                <TextBlock Text="Search" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="15" Margin="20,0,0,0"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </TreeViewItem.Header>
+                                </TreeViewItem>
+                            </TreeViewItem>
+
+
+
+                            <!--Report tab-->
+                            <TreeViewItem>
+                                <TreeViewItem.Header>
+                                    <Button  Name="History"  Background="#FF060A29" BorderBrush="#FF0B0F1F" Margin="-25,0,-10,0">
+                                        <StackPanel Orientation="Horizontal" Width="140">
+                                            <materialDesign:PackIcon Kind="History" VerticalAlignment="Center" Height="24" Width="25" Margin="0,0,5,0"/>
+                                            <TextBlock  Text="History" HorizontalAlignment="Center"  FontFamily="Nyala" FontSize="20" Margin="25 1 1 1" />
+                                        </StackPanel>
+                                    </Button>
+                                </TreeViewItem.Header>
+                            </TreeViewItem>
+
+                        </TreeView>
+                    </ScrollViewer>
+                </StackPanel>
+
+            </Grid>
+
+            <!--Title bar-->
+            <Grid x:Name="GridTitlebar" Grid.ColumnSpan="2" Background="#FF060A29"  >
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                 
+                   
+                   
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
